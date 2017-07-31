@@ -25,6 +25,7 @@ Microcontroller.add({
   operatingRange: { type: Types.Relationship, ref:'OperatingRange', createInline: true, required: true, initial: true, index: true },
   programMemoryTypes: { type: Types.Relationship, ref:'MemoryType', createInline: true, many: true, required: true, initial: true, index: true },
   programmingLanguageSupport: { type: Types.Relationship, ref:'ProgrammingLanguage', label: 'Programming Languages Supported', createInline: true, many: true, required: true, initial: true, index: true },
+  architecture: { type: Types.Relationship, ref:'MicrocontrollerArchitecture', label: 'Architecture', createInline: true, index: true },
 	CPUCount: {
     type: Types.Number,
 		label: 'Central Processor Unit (CPU) Count',

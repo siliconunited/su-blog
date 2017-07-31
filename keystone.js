@@ -87,8 +87,8 @@ keystone.set('nav', {
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
-	devicesUnderTest: ['microcontrollers'],
-	assets: ['File','DUTFile'],
+	devicesUnderTest: ['microcontrollers','microcontroller-architectures'],
+	assets: ['files','dutfiles'],
 });
 
 // Start Keystone to connect to your database and initialise the web server
