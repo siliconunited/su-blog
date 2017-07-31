@@ -37,6 +37,18 @@ Microcontroller.add({
 		brief: { type: Types.Html, height: 150, initial: true, wysiwyg: true },
 		extended: { type: Types.Html, height: 400, wysiwyg: true }
 	},
+	ioAndPackages: {
+		brief: { type: Types.Html, label: 'I/O and packages', height: 150, initial: true, wysiwyg: true },
+		extended: { type: Types.Html, label: 'I/O and packages', height: 400, wysiwyg: true }
+	},
+	peripheralFeatures: {
+		brief: { type: Types.Html, label: 'Peripheral Features', height: 150, initial: true, wysiwyg: true },
+		extended: { type: Types.Html, label: 'Peripheral Features', height: 400, wysiwyg: true }
+	},
+	specialFeatures: {
+		brief: { type: Types.Html, label: 'Special Features', height: 150, initial: true, wysiwyg: true },
+		extended: { type: Types.Html, label: 'Special Features', height: 400, wysiwyg: true }
+	},
 	description: {
 		brief: { type: Types.Textarea, height: 150, initial: true },
 		extended: { type: Types.Textarea, height: 400 }
@@ -145,6 +157,8 @@ Microcontroller.add({
     emptyOption: true,
     index: true
   },
+	operatingVoltage: { type: Types.TextArea },
+	operatingFrequency: { type: Types.TextArea },
 	hasWatchdogTimer: {
     type: Types.Boolean,
 		label: 'Watchdog Timer',
