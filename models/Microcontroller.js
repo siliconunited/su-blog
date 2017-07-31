@@ -32,6 +32,10 @@ Microcontroller.add({
 	cpus: { type: Types.Relationship, ref:'CPU', createInline: true, required: true, initial: true, many: true, index: true },
 	url: { type: Types.Url },
 	purchaseUrl: { type: Types.Url },
+	features: {
+		brief: { type: Types.Html, height: 150, initial: true, wysiwyg: true },
+		extended: { type: Types.Html, height: 400, wysiwyg: true }
+	},
 	description: {
 		brief: { type: Types.Textarea, height: 150, initial: true },
 		extended: { type: Types.Textarea, height: 400 }
