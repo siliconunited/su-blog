@@ -157,8 +157,8 @@ Microcontroller.add({
     emptyOption: true,
     index: true
   },
-	operatingVoltage: { type: Types.TextArea },
-	operatingFrequency: { type: Types.TextArea },
+	operatingVoltage: { type: Types.Textarea },
+	operatingFrequency: { type: Types.Textarea },
 	hasWatchdogTimer: {
     type: Types.Boolean,
 		label: 'Watchdog Timer',
