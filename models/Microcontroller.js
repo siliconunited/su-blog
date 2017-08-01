@@ -54,80 +54,65 @@ Microcontroller.add({
 		extended: { type: Types.Textarea, height: 400 }
 	},
   dataBus: {
-    type: Types.Select,
-    options: 'unknown, 4 bit, 8 bit, 16 bit, 32 bit, 64 bit',
+		type: Types.Relationship,
+		ref: 'MemoryBitSpecification',
     note: 'The number of bits the data bus can transfer at the same time. A bidirectional set of conductive paths on which data or instruction codes are transferred into the DSP, or on which the result of an operation or computation is sent out from the DSP.',
-    emptyOption: true,
     index: true
   },
   lifeCycleStage: {
+		type: Types.Relationship,
+		ref: 'LifeCycleSpecification',
     type: Types.Select,
-    options: 'unknown, introduction, new product, rapid growth, maturity, saturation, not recomended (declining), phase out, removed',
     note: 'The current product lifecycle stage, as defined by <a href="http://www.globalspec.com/SpecSearch/SearchForm/semiconductors/microprocessors_microcontrollers/microcontrollers#cb_Life_Cycle_Stage" target="_blank">EIA-724</a>.',
-    emptyOption: true,
     index: true
   },
-  clockSpeed: { type: Types.Text },
-  clockSpeedUnit: {
-    type: Types.Select,
-    options: 'microhertz, millihertz, Hz, kHz, MHz, GHz, THz',
-    note: 'The current product lifecycle stage, as defined by <a href="http://www.globalspec.com/SpecSearch/SearchForm/semiconductors/microprocessors_microcontrollers/microcontrollers#cb_Life_Cycle_Stage" target="_blank">EIA-724</a>.',
-    default: 'MHz',
+  clockSpeed: {
+		type: Types.Relationship,
+		ref: 'FrequencySpecification',
     index: true
   },
 	numberOfInterupts: { type: Types.Text },
-	internalRAMSize: { type: Types.Text },
-	internalRAMSizeUnit: {
-    type: Types.Select,
-    options: 'KB, MB, GB, TB, Byte, Mbit, Kbit',
+	internalRAM: {
+		type: Types.Relationship,
+		ref: 'MemorySpecification',
     note: 'Random access memory (RAM) can be read from or written to in a nonlinear manner. RAM derives its name from the fact that any byte of memory can be accessed randomly instead of sequentially. RAM does not retain data in memory when power is removed.',
-    emptyOption: true,
     index: true
   },
-	internalROMSize: { type: Types.Text },
-	internalROMSizeUnit: {
-    type: Types.Select,
-    options: 'KB, MB, GB, TB, Byte, Mbit, Kbit',
+	internalROM: {
+		type: Types.Relationship,
+		ref: 'MemorySpecification',
     note: 'Read-only memory (ROM) contains pre-programmed data and is either unchangeable or requires a special operation to overwrite. ROM retains data in memory when power is removed. A photosensitive material is etched to hold the required bit pattern.',
-    emptyOption: true,
     index: true
   },
 	internalROMType: {
-    type: Types.Select,
-    options: 'unknown, ROMLess, Mask ROM, EPROM, EEPROM, Flash, OTP, Other',
+		type: Types.Relationship,
+		ref: 'MemoryType',
     note: 'The type of the on-chip instruction ROM.',
-		emptyOption: true,
     index: true
   },
-	supplyVoltage: { type: Types.Text, label: 'Supply Voltage (Vcc)' },
-	supplyVoltageUnit: {
-    type: Types.Select,
-    options: 'volts, kilovolts, millivolts, microvolts, nanovolts',
+	supplyVoltage: {
+		type: Types.Relationship,
+		ref: 'VoltageSpecification',
+		label: 'Supply Voltage (Vcc)',
     note: 'The value as specified by level (Min-Typ-Max) of the direct supply voltage, applied to an IC.',
-    emptyOption: true,
     index: true
   },
-	supplyCurrent: { type: Types.Text },
-	supplyCurrentUnit: {
-    type: Types.Select,
-    options: 'amps, kiloamps, milliamps, microamps, nanoamps, picoamps, femptoamps',
+	supplyCurrent: {
+		type: Types.Relationship,
+		ref: 'CurrentSpecification',
     note: 'The continuous current (in A) required by this item during normal operation.',
-    emptyOption: true,
     index: true
   },
-	powerDissipation: { type: Types.Text },
-	powerDissipationUnit: {
-    type: Types.Select,
-    options: 'HP, watts, megawatts, kwatts, milliwatts, microwatts, nanowatts, picowatts',
+	powerDissipation: {
+		type: Types.Relationship,
+		ref: 'PowerSpecification',
     note: 'The maximum permissible power dissipation per output (in W) of this item at specified ambient temperature.',
-    emptyOption: true,
     index: true
   },
 	timerBits: {
-    type: Types.Select,
-    options: 'unknown, 8 bit, 16 bit, 24 bit, 32 bit, 64 bit, other',
+		type: Types.Relationship,
+		ref: 'MemoryBitSpecification',
     note: 'The number of bits of the timer.',
-    emptyOption: true,
     index: true
   },
 	timerCount: { type: Types.Number, label: 'Number of Timers' },
@@ -136,27 +121,43 @@ Microcontroller.add({
     options: 'unknown, CAN, I²C, SPI, SCI, UART, USART, USB, other',
     note: 'The serial interface type(s), and the number of channels provided.',
     emptyOption: true,
+		many: true,
     index: true
   },
 	serialPortChannelCount: { type: Types.Number, label: 'Serial Port Channels' },
 	ioPortChannelCount: { type: Types.Number, label: 'Number of I/O Ports' },
 	adConverter: {
-    type: Types.Select,
+		type: Types.Relationship,
+		ref: 'MemorySpecification',
 		label: 'A/D Converter',
-    options: 'unknown, 8 bit, 16 bit, 24 bit, 32 bit, 64 bit, other',
     note: 'The resolution of the A/D converter.',
-    emptyOption: true,
     index: true
   },
 	pinCount: { type: Types.Number, label: 'Pin Count' },
-	operatingTemperature: { type: Types.Text },
-	operatingTemperatureUnit: {
-    type: Types.Select,
-    options: 'F, C, K',
-    note: 'The value as specified by level (Min-Typ-Max) of the ambient temperature (in degree Celsius) in which this microcontroller was designed to operate.',
-    emptyOption: true,
-    index: true
-  },
+	operatingTemperature: {
+		type: Types.Relationship,
+		ref:'TemperatureSpecification',
+		label: 'Operating Temperature',
+		note: 'The value as specified by level (Min-Typ-Max) of the ambient temperature (in degree Celsius) in which this microcontroller was designed to operate.',
+		createInline: true,
+		many: true
+	},
+	activePower: {
+		type: Types.Relationship,
+		ref:'EnergySpecification',
+		label: 'Active Power',
+		many: true,
+		index: true,
+		createInline: true,
+	},
+	sleepPower: {
+		type: Types.Relationship,
+		ref:'EnergySpecification',
+		label: 'Sleep Power',
+		many: true,
+		index: true,
+		createInline: true,
+	},
 	operatingVoltage: { type: Types.Textarea },
 	operatingFrequency: { type: Types.Textarea },
 	hasWatchdogTimer: {
