@@ -2,11 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * MemoryBitSpecification Model
+ * MemorySpecification Model
  * ==========
  */
 
-var MemoryBitSpecification = new keystone.List('MemoryBitSpecification', {
+var MemorySpecification = new keystone.List('MemorySpecification', {
 	track: {
 		createdBy: true,
 		updatedBy: true,
@@ -17,7 +17,7 @@ var MemoryBitSpecification = new keystone.List('MemoryBitSpecification', {
 	autokey: { path: 'slug', from: 'key', unique: true }
 });
 
-MemoryBitSpecification.add({
+MemorySpecification.add({
 	value: { type: Types.Number },
 	unit: {
     type: Types.Select,
@@ -29,5 +29,5 @@ MemoryBitSpecification.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }
 });
 
-MemoryBitSpecification.defaultColumns = 'value, unit|20%, createdBy|20%, createdAt|20%';
-MemoryBitSpecification.register();
+MemorySpecification.defaultColumns = 'value, unit|20%, createdBy|20%, createdAt|20%';
+MemorySpecification.register();

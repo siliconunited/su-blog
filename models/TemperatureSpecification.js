@@ -2,11 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * EnergySpecification Model
+ * TemperatureSpecification Model
  * ==========
  */
 
-var EnergySpecification = new keystone.List('EnergySpecification', {
+var TemperatureSpecification = new keystone.List('TemperatureSpecification', {
 	track: {
 		createdBy: true,
 		updatedBy: true,
@@ -17,7 +17,7 @@ var EnergySpecification = new keystone.List('EnergySpecification', {
 	autokey: { path: 'slug', from: 'key', unique: true }
 });
 
-EnergySpecification.add({
+TemperatureSpecification.add({
 	value: { type: Types.Text },
 	unit: {
     type: Types.Select,
@@ -29,12 +29,11 @@ EnergySpecification.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }
 });
 
-EnergySpecification.schema.virtual('description.full').get(function () {
+TemperatureSpecification.schema.virtual('description.full').get(function () {
 	return this.description.extended || this.description.brief;
 });
 
-EnergySpecification.relationship({ ref: 'Microcontroller', path: 'microcontrollers', refPath: 'activePower' });
-EnergySpecification.relationship({ ref: 'Microcontroller', path: 'microcontrollers', refPath: 'sleepPower' });
+TemperatureSpecification.relationship({ ref: 'Microcontroller', path: 'microcontrollers', refPath: 'operatingTemperature' });
 
-EnergySpecification.defaultColumns = 'value, unit|20%, createdBy|20%, createdAt|20%';
-EnergySpecification.register();
+TemperatureSpecification.defaultColumns = 'value, unit|20%, createdBy|20%, createdAt|20%';
+TemperatureSpecification.register();

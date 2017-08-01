@@ -62,7 +62,6 @@ Microcontroller.add({
   lifeCycleStage: {
 		type: Types.Relationship,
 		ref: 'LifeCycleSpecification',
-    type: Types.Select,
     note: 'The current product lifecycle stage, as defined by <a href="http://www.globalspec.com/SpecSearch/SearchForm/semiconductors/microprocessors_microcontrollers/microcontrollers#cb_Life_Cycle_Stage" target="_blank">EIA-724</a>.',
     index: true
   },
