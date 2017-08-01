@@ -18,39 +18,49 @@ var Microcontroller = new keystone.List('Microcontroller', {
 });
 
 Microcontroller.add({
-  manufacturer: { type: Types.Relationship, ref: 'Manufacturer', many: false, createInline: true },
+  manufacturer: { type: Types.Relationship, ref: 'Manufacturer', many: false, initial: true, createInline: true },
   title: { type: Types.Text, required: true, index: true, initial: true },
 	heroImage: { type: Types.CloudinaryImage },
+	architecture: { type: Types.Relationship, ref:'MicrocontrollerArchitecture', label: 'Architecture', createInline: true, initial: true, index: true },
 	icPackageType: { type: Types.Relationship, ref:'ICPackageType', label: 'IC Package Type', createInline: true, required: true, initial: true, index: true },
   operatingRange: { type: Types.Relationship, ref:'OperatingRange', createInline: true, required: true, initial: true, index: true },
   programMemoryTypes: { type: Types.Relationship, ref:'MemoryType', createInline: true, many: true, required: true, initial: true, index: true },
   programmingLanguageSupport: { type: Types.Relationship, ref:'ProgrammingLanguage', label: 'Programming Languages Supported', createInline: true, many: true, required: true, initial: true, index: true },
-  architecture: { type: Types.Relationship, ref:'MicrocontrollerArchitecture', label: 'Architecture', createInline: true, index: true },
 	CPUCount: {
     type: Types.Number,
-		label: 'Central Processor Unit (CPU) Count',
+		label: 'CPU Count',
+		initial: true
   },
-	cpus: { type: Types.Relationship, ref:'CPU', createInline: true, required: true, initial: true, many: true, index: true },
+	cpus: {
+		type: Types.Relationship,
+		ref:'CPU',
+		createInline: true,
+		required: true,
+		initial: true,
+		many: true,
+		index: true,
+		label: 'CPUs'
+	},
 	url: { type: Types.Url },
 	purchaseUrl: { type: Types.Url },
 	features: {
-		brief: { type: Types.Html, height: 150, initial: true, wysiwyg: true },
+		brief: { type: Types.Html, height: 150, wysiwyg: true },
 		extended: { type: Types.Html, height: 400, wysiwyg: true }
 	},
 	ioAndPackages: {
-		brief: { type: Types.Html, label: 'I/O and packages', height: 150, initial: true, wysiwyg: true },
+		brief: { type: Types.Html, label: 'I/O and packages', height: 150, wysiwyg: true },
 		extended: { type: Types.Html, label: 'I/O and packages', height: 400, wysiwyg: true }
 	},
 	peripheralFeatures: {
-		brief: { type: Types.Html, label: 'Peripheral Features', height: 150, initial: true, wysiwyg: true },
+		brief: { type: Types.Html, label: 'Peripheral Features', height: 150, wysiwyg: true },
 		extended: { type: Types.Html, label: 'Peripheral Features', height: 400, wysiwyg: true }
 	},
 	specialFeatures: {
-		brief: { type: Types.Html, label: 'Special Features', height: 150, initial: true, wysiwyg: true },
+		brief: { type: Types.Html, label: 'Special Features', height: 150, wysiwyg: true },
 		extended: { type: Types.Html, label: 'Special Features', height: 400, wysiwyg: true }
 	},
 	description: {
-		brief: { type: Types.Textarea, height: 150, initial: true },
+		brief: { type: Types.Textarea, height: 150 },
 		extended: { type: Types.Textarea, height: 400 }
 	},
   dataBus: {
