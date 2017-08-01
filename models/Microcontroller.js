@@ -18,7 +18,7 @@ var Microcontroller = new keystone.List('Microcontroller', {
 });
 
 Microcontroller.add({
-  manufacturer: { type: Types.Relationship, ref: 'Manufacturer', many: false, initial: true, createInline: true },
+  manufacturer: { type: Types.Relationship, ref: 'MicrocontrollerManufacturer', many: false, initial: true, createInline: true },
   title: { type: Types.Text, required: true, index: true, initial: true },
 	heroImage: { type: Types.CloudinaryImage },
 	architecture: { type: Types.Relationship, ref:'MicrocontrollerArchitecture', label: 'Architecture', createInline: true, initial: true, index: true },
