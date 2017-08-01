@@ -87,7 +87,8 @@ keystone.set('nav', {
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
-	devicesUnderTest: ['microcontrollers','microcontroller-architectures'],
+	manufacturers: ['cpumanufacturers', 'measuring-device-manufacturers', 'microcontroller-manufacturers'],
+	devicesUnderTest: ['microcontrollers', 'microcontroller-architectures'],
 	assets: ['files','dutfiles'],
 });
 
