@@ -18,12 +18,14 @@ var TemperatureSpecification = new keystone.List('TemperatureSpecification', {
 });
 
 TemperatureSpecification.add({
-	value: { type: Types.Text },
+	value: { type: Types.Text, initial: true, required: true },
 	unit: {
     type: Types.Select,
     options: 'F, C, K',
     emptyOption: true,
-    index: true
+    index: true,
+		initial: true,
+		required: true
   },
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

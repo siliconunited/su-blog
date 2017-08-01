@@ -18,12 +18,13 @@ var MemorySpecification = new keystone.List('MemorySpecification', {
 });
 
 MemorySpecification.add({
-	value: { type: Types.Number },
+	value: { type: Types.Number, initial: true, required: true },
 	unit: {
     type: Types.Select,
     options: 'bit, Byte, KB, MB, GB, TB, Mbit, Kbit',
 		emptyOption: true,
     index: true,
+		initial: true, required: true
   },
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

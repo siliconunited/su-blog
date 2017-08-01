@@ -22,11 +22,13 @@ EnergySpecification.add({
 		type: Types.Relationship,
 		ref:'FrequencySpecification',
 		createInline: true,
+		initial: true, required: true
 	},
 	current: {
 		type: Types.Relationship,
 		ref:'CurrentSpecification',
 		createInline: true,
+		initial: true, required: true
 	},
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

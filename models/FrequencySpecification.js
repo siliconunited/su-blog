@@ -18,13 +18,14 @@ var FrequencySpecification = new keystone.List('FrequencySpecification', {
 });
 
 FrequencySpecification.add({
-	value: { type: Types.Number },
+	value: { type: Types.Number, initial: true, required: true },
 	unit: {
     type: Types.Select,
     options: 'microhertz, millihertz, Hz, kHz, MHz, GHz, THz',
     default: 'MHz',
     index: true,
 		emptyOption: true,
+		initial: true, required: true
   },
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

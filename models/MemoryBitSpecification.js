@@ -18,12 +18,13 @@ var MemoryBitSpecification = new keystone.List('MemoryBitSpecification', {
 });
 
 MemoryBitSpecification.add({
-	value: { type: Types.Number },
+	value: { type: Types.Number, initial: true, required: true },
 	unit: {
     type: Types.Select,
     options: 'unknown, 4 bit, 8 bit, 16 bit, 24 bit, 32 bit, 64 bit, other',
 		emptyOption: true,
     index: true,
+		initial: true, required: true
   },
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

@@ -18,12 +18,13 @@ var LifeCycleSpecification = new keystone.List('LifeCycleSpecification', {
 });
 
 LifeCycleSpecification.add({
-	value: { type: Types.Number },
+	value: { type: Types.Number, initial: true, required: true },
 	unit: {
     type: Types.Select,
     options: 'unknown, introduction, new product, rapid growth, maturity, saturation, not recomended (declining), phase out, removed',
     index: true,
 		emptyOption: true,
+		initial: true, required: true
   },
 	notes: { type: Types.Textarea, height: 150 },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }

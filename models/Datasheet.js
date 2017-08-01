@@ -44,7 +44,7 @@ var AWSStorage = new keystone.Storage({
 });
 
 Datasheet.add({
-	title: { type: Types.Text, hidden: true, index: true },
+	title: { type: Types.Text, hidden: true, index: true, initial: true },
 	file: {
 		type: Types.File,
 		storage: AWSStorage,
