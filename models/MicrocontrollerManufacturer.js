@@ -2,11 +2,11 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Manufacturer Model
+ * MicrocontrollerManufacturer Model
  * ==========
  */
 
-var Manufacturer = new keystone.List('Manufacturer', {
+var MicrocontrollerManufacturer = new keystone.List('MicrocontrollerManufacturer', {
 	track: {
 		createdBy: true,
 		updatedBy: true,
@@ -17,7 +17,7 @@ var Manufacturer = new keystone.List('Manufacturer', {
 	autokey: { path: 'slug', from: 'key', unique: true }
 });
 
-Manufacturer.add({
+MicrocontrollerManufacturer.add({
   title: { type: Types.Text, required: true, index: true, initial: true },
   heroImage: { type: Types.CloudinaryImage, collapse: true },
 	url: { type: Types.Url },
@@ -31,9 +31,11 @@ Manufacturer.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }
 });
 
-Manufacturer.schema.virtual('description.full').get(function () {
+MicrocontrollerManufacturer.schema.virtual('description.full').get(function () {
 	return this.description.extended || this.description.brief;
 });
 
-Manufacturer.defaultColumns = 'title, state|20%, createdBy|20%, createdAt|20%';
-Manufacturer.register();
+MicrocontrollerManufacturer.relationship({ ref: 'Microcontroller', path: 'microcontrollers', refPath: 'manufacturer' });
+
+MicrocontrollerManufacturer.defaultColumns = 'title, state|20%, createdBy|20%, createdAt|20%';
+MicrocontrollerManufacturer.register();
