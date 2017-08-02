@@ -28,6 +28,8 @@ ContactProbe.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'published', index: true }
 });
 
+ContactProbe.relationship({ ref: 'TestFixture', path: 'test-fixtures', refPath: 'contactProbes' });
+
 ContactProbe.schema.virtual('description.full').get(function () {
 	return this.description.extended || this.description.brief;
 });

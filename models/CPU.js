@@ -33,6 +33,7 @@ CPU.add({
 });
 
 CPU.relationship({ ref: 'Microcontroller', path: 'microcontrollers', refPath: 'cpus' });
+CPU.relationship({ ref: 'MeasuringDevice', path: 'measuring-devices', refPath: 'cpus' });
 
 CPU.schema.virtual('description.full').get(function () {
 	return this.description.extended || this.description.brief;

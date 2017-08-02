@@ -7,6 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var ICPackageType = new keystone.List('ICPackageType', {
+	label: 'IC Package Type',
 	track: {
 		createdBy: true,
 		updatedBy: true,

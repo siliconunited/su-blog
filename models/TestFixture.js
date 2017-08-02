@@ -20,6 +20,9 @@ var TestFixture = new keystone.List('TestFixture', {
 TestFixture.add({
   title: { type: Types.Text, required: true, index: true, initial: true },
   heroImage: { type: Types.CloudinaryImage, collapse: true },
+	type: { type: Types.Relationship, ref:'TestFixtureType', label: 'Type', createInline: true, initial: true, index: true },
+	measuringDevices: { type: Types.Relationship, ref:'MeasuringDevice', createInline: true, initial: true, many: true, index: true },
+	contactProbes: { type: Types.Relationship, ref:'ContactProbe', createInline: true, initial: true, many: true, index: true },
 	description: {
 		brief: { type: Types.Textarea, height: 150, initial: true },
 		extended: { type: Types.Textarea, height: 400 }

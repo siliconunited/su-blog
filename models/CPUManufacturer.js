@@ -7,6 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var CPUManufacturer = new keystone.List('CPUManufacturer', {
+	label: 'CPU Manufacturer',
 	track: {
 		createdBy: true,
 		updatedBy: true,
