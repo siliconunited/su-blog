@@ -20,7 +20,7 @@ var ContactProbe = new keystone.List('ContactProbe', {
 ContactProbe.add({
 	type: {
 		type: Types.Select,
-		options: 'contacts, pins, probes, receptacles, tools'
+		options: 'contacts, pins, probes, receptacles, tools',
 		emptyOptions: true
 	},
   title: { type: Types.Text, required: true, index: true, initial: true },
@@ -32,7 +32,7 @@ ContactProbe.add({
 	springForce: { type: Types.Text },
 	tipStyles: {
 		type: Types.Select,
-		options: 'arrowhead, blade, chisel, concave, conical, convex, crown, flat, needle, serrated, spear, spherical radius, star, tri-needle, tulip'
+		options: 'arrowhead, blade, chisel, concave, conical, convex, crown, flat, needle, serrated, spear, spherical radius, star, tri-needle, tulip',
 		emptyOptions: true
 	},
 	workingTravel: { type: Types.Number, note: 'in (mm)' },
