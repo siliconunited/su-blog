@@ -48,6 +48,8 @@ keystone.init({
 
 	'emails': 'templates/emails',
 
+	'admin path': 'admin',
+
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -94,8 +96,8 @@ keystone.set('nav', {
 	galleries: 'galleries',
 	enquiries: 'enquiries',
 	users: 'users',
-	manufacturers: ['cpumanufacturers', 'measuring-device-manufacturers', 'microcontroller-manufacturers'],
-	devicesUnderTest: ['microcontrollers', 'microcontroller-architectures'],
+	manufacturers: ['cpu-manufacturers', 'gpu-manufacturers', 'measuring-device-manufacturers', 'microcontroller-manufacturers', 'sbc-manufacturers'],
+	devicesUnderTest: ['microcontrollers', 'sbcs', 'sensors'],
 	assets: ['files','dutfiles'],
 });
 
