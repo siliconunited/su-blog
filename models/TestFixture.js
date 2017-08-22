@@ -35,5 +35,7 @@ TestFixture.schema.virtual('description.full').get(function () {
 	return this.description.extended || this.description.brief;
 });
 
+TestFixture.relationship({ ref: 'Test', path: 'tests', refPath: 'testFixture' });
+
 TestFixture.defaultColumns = 'title, state|20%, createdBy|20%, createdAt|20%';
 TestFixture.register();
