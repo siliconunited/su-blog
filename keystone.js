@@ -92,9 +92,9 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	posts: ['posts', 'post-categories'],
-	galleries: 'galleries',
-	enquiries: 'enquiries',
+	tests: ['tests', 'test-categories'],
+	// galleries: 'galleries',
+	// enquiries: 'enquiries',
 	users: 'users',
 	manufacturers: ['cpu-manufacturers', 'gpu-manufacturers', 'measuring-device-manufacturers', 'microcontroller-manufacturers', 'sbc-manufacturers'],
 	devicesUnderTest: ['microcontrollers', 'sbcs', 'sensors'],
